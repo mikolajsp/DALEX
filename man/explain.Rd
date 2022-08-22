@@ -5,7 +5,7 @@
 \alias{explain}
 \title{Create Model Explainer}
 \usage{
-explain.default(
+\method{explain}{default}(
   model,
   data = NULL,
   y = NULL,

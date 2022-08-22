@@ -4,9 +4,19 @@
 \alias{model_parts}
 \alias{variable_importance}
 \alias{feature_importance}
+\alias{model_parts.default}
 \title{Dataset Level Variable Importance as Change in Loss Function after Variable Permutations}
 \usage{
 model_parts(
+  explainer,
+  loss_function = loss_default(explainer$model_info$type),
+  ...,
+  type = "variable_importance",
+  N = n_sample,
+  n_sample = 1000
+)
+
+\method{model_parts}{default}(
   explainer,
   loss_function = loss_default(explainer$model_info$type),
   ...,

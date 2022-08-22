@@ -122,7 +122,6 @@
 #' aps_ranger_explainer4
 #'  }
 #'
-
 explain.default <- function(model, data = NULL, y = NULL, predict_function = NULL,
                             predict_function_target_column = NULL,
                             residual_function = NULL, weights = NULL, ...,

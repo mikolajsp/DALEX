@@ -69,6 +69,11 @@
 #'
 #' @name predict_parts
 #' @export
+predict_parts <- function(explainer, new_observation, ..., N = if(substr(type, 1, 4) == "osci") 500 else NULL, type = "break_down")
+                UseMethod("predict_parts", explainer)
+
+#' @name predict_parts
+#' @export
 predict_parts <- function(explainer, new_observation, ..., N = if(substr(type, 1, 4) == "osci") 500 else NULL, type = "break_down") {
   # https://github.com/ModelOriented/DALEX/issues/394  keep only N rows
   if (!is.null(N) && N < nrow(explainer$data)) {

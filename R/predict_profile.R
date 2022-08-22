@@ -54,6 +54,11 @@
 
 #' @name predict_profile
 #' @export
+predict_profile <-  function(explainer, new_observation, variables = NULL, ..., type = "ceteris_paribus", variable_splits_type = "uniform")
+                    UseMethod("predict_profile", explainer)
+
+#' @name predict_profile
+#' @export
 predict_profile <-  function(explainer, new_observation, variables = NULL, ..., type = "ceteris_paribus", variable_splits_type = "uniform") {
   # run checks against the explainer objects
   test_explainer(explainer, has_data = TRUE, function_name = "predict_profile")

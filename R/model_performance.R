@@ -19,6 +19,7 @@
 #' }
 #'
 #' @references Explanatory Model Analysis. Explore, Explain, and Examine Predictive Models. \url{https://ema.drwhy.ai/}
+#' @rdname model_performance
 #' @importFrom stats median weighted.mean
 #' @export
 #' @examples
@@ -60,7 +61,11 @@
 #'
 #'}
 #'
-model_performance <- function(explainer, ..., cutoff = 0.5) {
+model_performance <- function(explainer, ..., cutoff = 0.5)  UseMethod("model_performance", explainer)
+
+#' @rdname model_performance
+#' @export
+model_performance.default <- function(explainer, ..., cutoff = 0.5) {
   test_explainer(explainer, has_data = TRUE, has_y = TRUE, function_name = "model_performance")
 
   # Check since explain could have been run with precalculate = FALSE

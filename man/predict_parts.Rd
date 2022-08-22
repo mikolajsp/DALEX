@@ -20,6 +20,14 @@ predict_parts(
   type = "break_down"
 )
 
+predict_parts(
+  explainer,
+  new_observation,
+  ...,
+  N = if (substr(type, 1, 4) == "osci") 500 else NULL,
+  type = "break_down"
+)
+
 predict_parts_oscillations(explainer, new_observation, ...)
 
 predict_parts_oscillations_uni(

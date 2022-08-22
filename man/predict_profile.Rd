@@ -14,6 +14,15 @@ predict_profile(
   variable_splits_type = "uniform"
 )
 
+predict_profile(
+  explainer,
+  new_observation,
+  variables = NULL,
+  ...,
+  type = "ceteris_paribus",
+  variable_splits_type = "uniform"
+)
+
 individual_profile(
   explainer,
   new_observation,

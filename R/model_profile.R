@@ -23,7 +23,6 @@
 #' It's a data frame with calculated average model responses.
 #'
 #' @references Explanatory Model Analysis. Explore, Explain, and Examine Predictive Models. \url{https://ema.drwhy.ai/}
-#'
 #' @name model_profile
 #' @examples
 #' titanic_glm_model <- glm(survived~., data = titanic_imputed, family = "binomial")
@@ -57,6 +56,11 @@
 #' plot(model_profile_ranger_fare, model_profile_glm_fare)
 #'  }
 #'
+#' @export
+model_profile <- function(explainer, variables = NULL, N = 100, ..., groups = NULL, k = NULL, center = TRUE, type = "partial")
+                  UseMethod("model_profile", explainer)
+
+#' @name model_profile
 #' @export
 model_profile <- function(explainer, variables = NULL, N = 100, ..., groups = NULL, k = NULL, center = TRUE, type = "partial") {
   # run checks against the explainer objects

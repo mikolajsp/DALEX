@@ -2,9 +2,12 @@
 % Please edit documentation in R/model_performance.R
 \name{model_performance}
 \alias{model_performance}
+\alias{model_performance.default}
 \title{Dataset Level Model Performance Measures}
 \usage{
 model_performance(explainer, ..., cutoff = 0.5)
+
+\method{model_performance}{default}(explainer, ..., cutoff = 0.5)
 }
 \arguments{
 \item{explainer}{a model to be explained, preprocessed by the \code{\link{explain}} function}

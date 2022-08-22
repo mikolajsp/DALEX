@@ -410,6 +410,7 @@ residual_function_default <- function(model, data, y, predict_function = yhat) {
   y - predict_function(model, data)
 }
 
+
 # default residual function for multiclass tasks
 residual_function_multiclass <- function(model, data, y, predict_function = yhat) {
   y_char <- as.character(y)
@@ -423,7 +424,11 @@ residual_function_multiclass <- function(model, data, y, predict_function = yhat
 
 #' @rdname explain
 #' @export
-explain <- explain.default
+explain <- function(model, data = NULL, y = NULL, predict_function = NULL,
+                            predict_function_target_column = NULL,
+                            residual_function = NULL, weights = NULL, ...,
+                            label = NULL, verbose = TRUE, precalculate = TRUE,
+                            colorize = !isTRUE(getOption('knitr.in.progress')), model_info = NULL, type = NULL) UseMethod("explain", model)
 
 
 #

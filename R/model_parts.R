@@ -11,6 +11,7 @@
 #' @param n_sample alias for \code{N} held for backwards compatibility. number of observations that should be sampled for calculation of variable importance.
 #'
 #' @references Explanatory Model Analysis. Explore, Explain and Examine Predictive Models. \url{https://ema.drwhy.ai/}
+#' @rdname model_parts
 #' @return An object of the class \code{feature_importance}.
 #' It's a data frame with calculated average response.
 #'
@@ -64,7 +65,16 @@ model_parts <- function(explainer,
                               ...,
                               type = "variable_importance",
                               N = n_sample,
-                              n_sample = 1000) {
+                              n_sample = 1000) UseMethod("model_parts", explainer)
+
+#' @rdname model_parts
+#' @export
+model_parts.default <- function(explainer,
+                          loss_function = loss_default(explainer$model_info$type),
+                          ...,
+                          type = "variable_importance",
+                          N = n_sample,
+                          n_sample = 1000){
   # run checks against the explainer objects
   test_explainer(explainer, has_data = TRUE, has_y = TRUE, function_name = "model_parts")
   if (!(type %in% c("difference", "ratio", "raw", "variable_importance"))) stop("Type shall be one of 'variable_importance', 'difference', 'ratio', 'raw'")

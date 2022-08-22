@@ -17,6 +17,17 @@ model_profile(
   type = "partial"
 )
 
+model_profile(
+  explainer,
+  variables = NULL,
+  N = 100,
+  ...,
+  groups = NULL,
+  k = NULL,
+  center = TRUE,
+  type = "partial"
+)
+
 variable_profile(
   explainer,
   variables = NULL,

@@ -171,7 +171,6 @@ aps_ranger_model4 <- ranger(m2.price ~., data = apartments, num.trees = 50)
 aps_ranger_explainer4 <- explain(aps_ranger_model4, data = apartments, label = "model_ranger")
 aps_ranger_explainer4
  }
-
 }
 \references{
 Explanatory Model Analysis. Explore, Explain and Examine Predictive Models. \url{https://ema.drwhy.ai/}

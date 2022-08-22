@@ -42,7 +42,7 @@
 #'
 #' @references Explanatory Model Analysis. Explore, Explain and Examine Predictive Models. \url{https://ema.drwhy.ai/}
 #' @rdname explain
-#' @export
+#' @export explain.default
 #' @importFrom stats predict
 #' @importFrom utils head tail installed.packages methods
 #'
